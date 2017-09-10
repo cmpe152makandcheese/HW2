@@ -28,52 +28,48 @@ void PascalToken::initialize()
 
     vector<string> rw_strings =
     {
-        "AND", "ARRAY", "BEGIN", "CASE", "CONST", "DIV", "DO", "DOWNTO",
-        "ELSE", "END", "FILE", "FOR", "FUNCTION", "GOTO", "IF", "IN",
-        "LABEL", "NIL", "OF", "OR", "PACKED", "PROCEDURE",
-        "PROGRAM", "RECORD", "REPEAT", "SET", "THEN", "TO", "TYPE",
-        "UNTIL", "VAR", "WHILE", "WITH"
+		"abstract", "break", "case", "char", "class", "const", "continue", "do",
+		"double", "else", "enum", "extends", "float", "for", "goto", "if"
+		"int", "long", "native", "return", "short", "package", "protected", "static",
+		"switch", "super", "this", "throw", "void", "volatile", "while"
     };
 
     vector<PascalTokenType> rw_keys =
     {
-        PascalTokenType::AND,
-        PascalTokenType::ARRAY,
-        PascalTokenType::BEGIN,
-        PascalTokenType::CASE,
-        PascalTokenType::CONST,
-        PascalTokenType::DIV,
-        PascalTokenType::DO,
-        PascalTokenType::DOWNTO,
+		PascalTokenType::ABSTRACT,
+		PascalTokenType::BREAK,
+		PascalTokenType::CASE,
+		PascalTokenType::CHAR,
+		PascalTokenType::CLASS,
+		PascalTokenType::CONST,
+		PascalTokenType::CONTINUE,
+		PascalTokenType::DO,
 
-        PascalTokenType::ELSE,
-        PascalTokenType::END,
-        PascalTokenType::FILE,
-        PascalTokenType::FOR,
-        PascalTokenType::FUNCTION,
-        PascalTokenType::GOTO,
-        PascalTokenType::IF,
-        PascalTokenType::IN,
+		PascalTokenType::DOUBLE,
+		PascalTokenType::ELSE,
+		PascalTokenType::ENUM,
+		PascalTokenType::EXTENDS,
+		PascalTokenType::FLOAT,
+		PascalTokenType::FOR,
+		PascalTokenType::GOTO,
+		PascalTokenType::IF,
 
-        PascalTokenType::LABEL,
-        PascalTokenType::NIL,
-        PascalTokenType::OF,
-        PascalTokenType::OR,
-        PascalTokenType::PACKED,
-        PascalTokenType::PROCEDURE,
+		PascalTokenType::INT,
+		PascalTokenType::LONG,
+		PascalTokenType::NATIVE,
+		PascalTokenType::RETURN,
+		PascalTokenType::SHORT,
+		PascalTokenType::PACKAGE,
+		PascalTokenType::PROTECTED,
+		PascalTokenType::BIT_COMPLEMENT,
 
-        PascalTokenType::PROGRAM,
-        PascalTokenType::RECORD,
-        PascalTokenType::REPEAT,
-        PascalTokenType::SET,
-        PascalTokenType::THEN,
-        PascalTokenType::TO,
-        PascalTokenType::TYPE,
-
-        PascalTokenType::UNTIL,
-        PascalTokenType::VAR,
-        PascalTokenType::WHILE,
-        PascalTokenType::WITH
+		PascalTokenType::SWITCH,
+		PascalTokenType::SUPER,
+		PascalTokenType::THIS,
+		PascalTokenType::THROW,
+		PascalTokenType::VOID,
+		PascalTokenType::VOLATILE,
+		PascalTokenType::WHILE
     };
 
     for (int i = 0; i < rw_strings.size(); i++)
@@ -83,9 +79,6 @@ void PascalToken::initialize()
 
     vector<string> ss_strings =
     {
-//        "+", "-", "*", "/", ":=", ".", ",", ";", ":", "'", "=", "<>",
-//        "<", "<=", ">=", ">", "(", ")", "[", "]", "{", "}",  "^", ".."
-
 		"~", "!", "@", "%", "^", "&", "*", "-", "+", "=", "|", "/", ":",
 		";", "?", "<", ">", ".", ",", "'", "\"", "(", ")", "[", "]", "{", "}",
 		"++", "--", "<<", ">>", "<=", ">=", "+=", "-=", "*=", "/=", "==", "|=",
@@ -151,33 +144,7 @@ void PascalToken::initialize()
 		PascalTokenType::LOGIC_AND,
 		PascalTokenType::SLASH_SLASH,
 		PascalTokenType::SLASH_STAR,
-		PascalTokenType::STAR_SLASH,
-//        PascalTokenType::PLUS,
-//        PascalTokenType::MINUS,
-//        PascalTokenType::STAR,
-//        PascalTokenType::SLASH,
-//        PascalTokenType::COLON_EQUALS,
-//        PascalTokenType::DOT,
-//        PascalTokenType::COMMA,
-//        PascalTokenType::SEMICOLON,
-//        PascalTokenType::COLON,
-//        PascalTokenType::QUOTE,
-//        PascalTokenType::EQUALS,
-//        PascalTokenType::NOT_EQUALS,
-//
-//        PascalTokenType::LESS_THAN,
-//        PascalTokenType::LESS_EQUALS,
-//        PascalTokenType::GREATER_EQUALS,
-//        PascalTokenType::GREATER_THAN,
-//        PascalTokenType::LEFT_PAREN,
-//        PascalTokenType::RIGHT_PAREN,
-//        PascalTokenType::LEFT_BRACKET,
-//        PascalTokenType::RIGHT_BRACKET,
-//        PascalTokenType::LEFT_BRACE,
-//        PascalTokenType::RIGHT_BRACE,
-//        PascalTokenType::UP_ARROW,
-//        PascalTokenType::DOT_DOT
-//
+		PascalTokenType::STAR_SLASH
     };
 
     for (int i = 0; i < ss_strings.size(); i++)
@@ -196,12 +163,6 @@ void PascalToken::initialize()
 		"MULT_EQUALS", "SLASH_EQUALS", "EQUALS_EQUALS", "EXCLUSIVE_OR_EQUALS",
 		"MOD_EQUALS", "AND_EQUALS", "INCLUSIVE_OR_EQUALS", "NOT_EQUALS", "LEFT_SHIFT_EQUALS",
 		"RIGHT_SHIFT_EQUALS", "LOGIC_OR", "LOGIC_AND", "SLASH_SLASH", "SLASH_STAR", "STAR_SLASH"
-//        "PLUS", "MINUS", "STAR", "SLASH", "COLON_EQUALS", "DOT", "COMMA",
-//        "SEMICOLON", "COLON", "QUOTE", "EQUALS", "NOT_EQUALS",
-//
-//        "LESS_THAN", "LESS_EQUALS", "GREATER_EQUALS", "GREATER_THAN",
-//        "LEFT_PAREN", "RIGHT_PAREN", "LEFT_BRACKET", "RIGHT_BRACKET",
-//        "LEFT_BRACE", "RIGHT_BRACE", "UP_ARROW", "DOT_DOT"
     };
 
     for (int i = 0; i < ss_names.size(); i++)

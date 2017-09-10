@@ -80,9 +80,11 @@ void PascalScanner::skip_white_space() throw (string)
         // Start of a comment?
         if (current_ch == '/')
         {
-        	current_ch = next_char(); // consume to check next character
+        	char peek_ch = peek_char();
+
+//        	current_ch = next_char(); // consume to check next character
         	// One line comment
-        	if (current_ch == '/')
+        	if (peek_ch == '/')
         	{
         		// Consume whole line
         		do
@@ -91,8 +93,10 @@ void PascalScanner::skip_white_space() throw (string)
 				} while (current_ch != Source::END_OF_LINE);
         	}
         	// Block comment
-        	else if (current_ch == '*')
+        	else if (peek_ch == '*')
         	{
+        		// Consume /*
+        		current_ch = next_char();
         		current_ch = next_char();
         		do
 				{
@@ -118,9 +122,8 @@ void PascalScanner::skip_white_space() throw (string)
         	}
         	else
         	{
-        		//TODO: Need an Error if just an / appears
-//        		token = new PascalErrorToken(source, INVALID_CHARACTER, current_ch);
-				next_char();  // consume character
+        		// It is not a comment, it is only a single /
+        		break;
         	}
         }
 

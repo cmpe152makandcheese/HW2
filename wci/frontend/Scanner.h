@@ -55,6 +55,12 @@ public:
      */
     char next_char() throw (string);
 
+    /**
+	 * @return a preview of the next character from the source.
+	 * @throw a string message if an error occurred.
+	 */
+    char peek_char() throw (string);
+
 protected:
     Source *source;
 

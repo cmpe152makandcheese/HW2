@@ -44,13 +44,14 @@ void PascalWordToken::extract() throw (string)
 
     // Is it a reserved word or an identifier?
     string upper_case(text);
-    transform(upper_case.begin(), upper_case.end(),
-              upper_case.begin(), ::toupper);
+
     if (PascalToken::RESERVED_WORDS.find(upper_case)
             != PascalToken::RESERVED_WORDS.end())
     {
         // Reserved word.
         type = (TokenType) PascalToken::RESERVED_WORDS[upper_case];
+        transform(upper_case.begin(), upper_case.end(),
+				  upper_case.begin(), ::toupper);
         value = new DataValue(upper_case);
     }
     else
@@ -60,4 +61,4 @@ void PascalWordToken::extract() throw (string)
     }
 }
 
-}}}}  // namespace wci::frontend::pascal::tokens
+}}}}  // namespace wci::frontend::java::tokens

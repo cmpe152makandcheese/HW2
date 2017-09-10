@@ -42,4 +42,9 @@ char Scanner::next_char() throw (string)
     return source->next_char();
 }
 
+char Scanner::peek_char() throw (string)
+{
+	return source->peek_char();
+}
+
 }} // namespace wci::frontend

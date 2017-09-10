@@ -26,10 +26,10 @@ using namespace wci::frontend;
 enum class PascalTokenType
 {
     // Reserved words.
-    AND, ARRAY, BEGIN, CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
-    FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, NIL,
-    OF, OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET,
-    THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH,
+	ABSTRACT, BREAK, CASE, CHAR, CLASS, CONST, CONTINUE, DO,
+	DOUBLE, ELSE, ENUM, EXTENDS, FLOAT, FOR, GOTO, IF,
+	INT, LONG, NATIVE, RETURN, SHORT, PACKAGE, PROTECTED, STATIC,
+	SWITCH, SUPER, THIS, THROW, VOID, VOLATILE, WHILE,
 
     // Special symbols.
 	BIT_COMPLEMENT, NOT, ANNOTATION, MOD, BIT_EXCLUSIVE_OR, BIT_AND,
@@ -41,54 +41,45 @@ enum class PascalTokenType
 	MULT_EQUALS, SLASH_EQUALS, EQUALS_EQUALS, EXCLUSIVE_OR_EQUALS,
 	MOD_EQUALS, AND_EQUALS, INCLUSIVE_OR_EQUALS, NOT_EQUALS, LEFT_SHIFT_EQUALS,
 	RIGHT_SHIFT_EQUALS, LOGIC_OR, LOGIC_AND, SLASH_SLASH, SLASH_STAR, STAR_SLASH,
-//    PLUS, MINUS, STAR, SLASH, COLON_EQUALS,
-//    DOT, COMMA, SEMICOLON, COLON, QUOTE,
-//    EQUALS, NOT_EQUALS, LESS_THAN, LESS_EQUALS,
-//    GREATER_EQUALS, GREATER_THAN, LEFT_PAREN, RIGHT_PAREN,
-//    LEFT_BRACKET, RIGHT_BRACKET, LEFT_BRACE, RIGHT_BRACE,
-//    UP_ARROW, DOT_DOT,
 
     IDENTIFIER, INTEGER, REAL, STRING,
     ERROR, END_OF_FILE,
 };
 
-constexpr PascalTokenType PT_AND = PascalTokenType::AND;
-constexpr PascalTokenType PT_ARRAY = PascalTokenType::ARRAY;
-constexpr PascalTokenType PT_BEGIN = PascalTokenType::BEGIN;
+constexpr PascalTokenType PT_ABSTRACT = PascalTokenType::ABSTRACT;
+constexpr PascalTokenType PT_BREAK = PascalTokenType::BREAK;
 constexpr PascalTokenType PT_CASE = PascalTokenType::CASE;
+constexpr PascalTokenType PT_CHAR = PascalTokenType::CHAR;
+constexpr PascalTokenType PT_CLASS = PascalTokenType::CLASS;
 constexpr PascalTokenType PT_CONST = PascalTokenType::CONST;
-constexpr PascalTokenType PT_DIV = PascalTokenType::DIV;
+constexpr PascalTokenType PT_CONTINUE = PascalTokenType::CONTINUE;
 constexpr PascalTokenType PT_DO = PascalTokenType::DO;
-constexpr PascalTokenType PT_DOWNTO = PascalTokenType::DOWNTO;
 
+constexpr PascalTokenType PT_DOUBLE = PascalTokenType::DOUBLE;
 constexpr PascalTokenType PT_ELSE = PascalTokenType::ELSE;
-constexpr PascalTokenType PT_END = PascalTokenType::END;
-constexpr PascalTokenType PT_FILE = PascalTokenType::FILE;
+constexpr PascalTokenType PT_ENUM = PascalTokenType::ENUM;
+constexpr PascalTokenType PT_EXTENDS = PascalTokenType::EXTENDS;
+constexpr PascalTokenType PT_FLOAT = PascalTokenType::FLOAT;
 constexpr PascalTokenType PT_FOR = PascalTokenType::FOR;
-constexpr PascalTokenType PT_FUNCTION = PascalTokenType::FUNCTION;
 constexpr PascalTokenType PT_GOTO = PascalTokenType::GOTO;
 constexpr PascalTokenType PT_IF = PascalTokenType::IF;
-constexpr PascalTokenType PT_IN = PascalTokenType::IN;
 
-constexpr PascalTokenType PT_LABEL = PascalTokenType::LABEL;
-constexpr PascalTokenType PT_NIL = PascalTokenType::NIL;
-constexpr PascalTokenType PT_OF = PascalTokenType::OF;
-constexpr PascalTokenType PT_OR = PascalTokenType::OR;
-constexpr PascalTokenType PT_PACKED = PascalTokenType::PACKED;
-constexpr PascalTokenType PT_PROCEDURE = PascalTokenType::PROCEDURE;
+constexpr PascalTokenType PT_INT = PascalTokenType::INT;
+constexpr PascalTokenType PT_LONG = PascalTokenType::LONG;
+constexpr PascalTokenType PT_NATIVE = PascalTokenType::NATIVE;
+constexpr PascalTokenType PT_RETURN = PascalTokenType::RETURN;
+constexpr PascalTokenType PT_SHORT = PascalTokenType::SHORT;
+constexpr PascalTokenType PT_PACKAGE = PascalTokenType::PACKAGE;
+constexpr PascalTokenType PT_PROTECTED = PascalTokenType::PROTECTED;
+constexpr PascalTokenType PT_STATIC = PascalTokenType::BIT_COMPLEMENT;
 
-constexpr PascalTokenType PT_PROGRAM = PascalTokenType::PROGRAM;
-constexpr PascalTokenType PT_RECORD = PascalTokenType::RECORD;
-constexpr PascalTokenType PT_REPEAT = PascalTokenType::REPEAT;
-constexpr PascalTokenType PT_SET = PascalTokenType::SET;
-constexpr PascalTokenType PT_THEN = PascalTokenType::THEN;
-constexpr PascalTokenType PT_TO = PascalTokenType::TO;
-constexpr PascalTokenType PT_TYPE = PascalTokenType::TYPE;
-
-constexpr PascalTokenType PT_UNTIL = PascalTokenType::UNTIL;
-constexpr PascalTokenType PT_VAR = PascalTokenType::VAR;
+constexpr PascalTokenType PT_SWITCH = PascalTokenType::SWITCH;
+constexpr PascalTokenType PT_SUPER = PascalTokenType::SUPER;
+constexpr PascalTokenType PT_THIS = PascalTokenType::THIS;
+constexpr PascalTokenType PT_THROW = PascalTokenType::THROW;
+constexpr PascalTokenType PT_VOID = PascalTokenType::VOID;
+constexpr PascalTokenType PT_VOLATILE = PascalTokenType::VOLATILE;
 constexpr PascalTokenType PT_WHILE = PascalTokenType::WHILE;
-constexpr PascalTokenType PT_WITH = PascalTokenType::WITH;
 
 constexpr PascalTokenType PT_BIT_COMPLEMENT = PascalTokenType::BIT_COMPLEMENT;
 constexpr PascalTokenType PT_NOT = PascalTokenType::NOT;
