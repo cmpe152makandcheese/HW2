@@ -163,9 +163,9 @@ void Pascal::message_received(Message& message)
             string error_count = message[ERROR_COUNT];
             string elapsed_time = message[ELAPSED_TIME];
 
-            printf(PARSER_SUMMARY_FORMAT.c_str(),
-                   stoi(line_count), stoi(error_count),
-                   stof(elapsed_time));
+//            printf(PARSER_SUMMARY_FORMAT.c_str(),
+//                   stoi(line_count), stoi(error_count),
+//                   stof(elapsed_time));
             break;
         }
 
@@ -175,9 +175,9 @@ void Pascal::message_received(Message& message)
             string error_count = message[ERROR_COUNT];
             string elapsed_time = message[ELAPSED_TIME];
 
-            printf(INTERPRETER_SUMMARY_FORMAT.c_str(),
-                   stoi(execution_count), stoi(error_count),
-                   stof(elapsed_time));
+//            printf(INTERPRETER_SUMMARY_FORMAT.c_str(),
+//                   stoi(execution_count), stoi(error_count),
+//                   stof(elapsed_time));
             break;
         }
 
@@ -186,8 +186,8 @@ void Pascal::message_received(Message& message)
             string instruction_count = message[INSTRUCTION_COUNT];
             string elapsed_time = message[ELAPSED_TIME];
 
-            printf(COMPILER_SUMMARY_FORMAT.c_str(),
-                   stoi(instruction_count), stof(elapsed_time));
+//            printf(COMPILER_SUMMARY_FORMAT.c_str(),
+//                   stoi(instruction_count), stof(elapsed_time));
             break;
         }
 
