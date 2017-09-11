@@ -70,5 +70,5 @@ set(SOURCE_FILES Pascal.cpp Pascal.h
         wci/frontend/java/tokens/JavaSpecialSymbolToken.h
         wci/frontend/java/tokens/JavaStringToken.h
         wci/frontend/java/tokens/JavaWordToken.h
-        )
+        wci/frontend/java/tokens/JavaCharacterToken.cpp wci/frontend/java/tokens/JavaCharacterToken.h)
 add_executable(Pascal ${SOURCE_FILES})
