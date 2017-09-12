@@ -29,7 +29,7 @@ Parser *FrontendFactory::create_parser(string language, string type,
 		Scanner *scanner = new PascalScanner(source);
 		return new PascalParserTD(scanner);
 	}
-	// Change pascal scanner & parser to java TIM IS NOT HERE
+	// Change pascal scanner & parser to java TIM
 	else if ((language == "Java") && (type == "top-down"))
 	{
 		Scanner *scanner = new PascalScanner(source);
