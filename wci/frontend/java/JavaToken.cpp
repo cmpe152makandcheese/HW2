@@ -91,7 +91,7 @@ void JavaToken::initialize()
 		JavaTokenType::NOT,
 		JavaTokenType::ANNOTATION,
 		JavaTokenType::MOD,
-		JavaTokenType::BIT_EXCLUSIVE_OR,
+		JavaTokenType::HAT,
 		JavaTokenType::BIT_AND,
 
 		JavaTokenType::MULT,
@@ -130,16 +130,16 @@ void JavaToken::initialize()
 
 		JavaTokenType::MULT_EQUALS,
 		JavaTokenType::SLASH_EQUALS,
-		JavaTokenType::EQUALS_EQUALS,
+		JavaTokenType::EQUAL_EQUALS,
 		JavaTokenType::EXCLUSIVE_OR_EQUALS,
 
 		JavaTokenType::MOD_EQUALS,
 		JavaTokenType::AND_EQUALS,
 		JavaTokenType::INCLUSIVE_OR_EQUALS,
 		JavaTokenType::NOT_EQUALS,
-		JavaTokenType::LEFT_SHIFT_EQUALS,
+		JavaTokenType::LSHIFT_EQUALS,
 
-		JavaTokenType::RIGHT_SHIFT_EQUALS,
+		JavaTokenType::RSHIFT_EQUALS,
 		JavaTokenType::LOGIC_OR,
 		JavaTokenType::LOGIC_AND,
 		JavaTokenType::SLASH_SLASH,
@@ -154,15 +154,15 @@ void JavaToken::initialize()
 
     vector<string> ss_names =
     {
-		"BIT_COMPLEMENT", "NOT", "ANNOTATION", "MOD", "BIT_EXCLUSIVE_OR", "BIT_AND",
+		"BIT_COMPLEMENT", "NOT", "ANNOTATION", "MOD", "HAT", "BIT_AND",
 		"MULT", "MINUS", "PLUS", "EQUALS", "BIT_INLCUSIVE_OR", "SLASH", "COLON",
 		"SEMICOLON", "QUESTION_MARK", "LESS_THAN", "GREATER_THAN", "DOT", "COMMA",
 		"QUOTE", "DOUBLE_QUOTE", "LEFT_PAREN", "RIGHT_PAREN", "LEFT_BRACKET", "RIGHT_BRACKET",
 		"LEFT_BRACE", "RIGHT_BRACE", "PLUS_PLUS", "MINUS_MINUS", "SIGNED_LEFT_SHIFT",
 		"SIGNED_RIGHT_SHIFT", "LESS_EQUALS", "GREATER_EQUALS", "PLUS_EQUALS", "MINUS_EQUALS",
-		"MULT_EQUALS", "SLASH_EQUALS", "EQUALS_EQUALS", "EXCLUSIVE_OR_EQUALS",
-		"MOD_EQUALS", "AND_EQUALS", "INCLUSIVE_OR_EQUALS", "NOT_EQUALS", "LEFT_SHIFT_EQUALS",
-		"RIGHT_SHIFT_EQUALS", "LOGIC_OR", "LOGIC_AND", "SLASH_SLASH", "SLASH_STAR", "STAR_SLASH"
+		"MULT_EQUALS", "SLASH_EQUALS", "EQUAL_EQUALS", "EXCLUSIVE_OR_EQUALS",
+		"MOD_EQUALS", "AND_EQUALS", "INCLUSIVE_OR_EQUALS", "NOT_EQUALS", "LSHIFT_EQUALS",
+		"RSHIFT_EQUALS", "LOGIC_OR", "LOGIC_AND", "SLASH_SLASH", "SLASH_STAR", "STAR_SLASH"
     };
 
     for (int i = 0; i < ss_names.size(); i++)
