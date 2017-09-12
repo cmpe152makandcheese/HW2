@@ -1,7 +1,7 @@
 /**
- * <h1>PascalError</h1>
+ * <h1>JavaError</h1>
  *
- * <p>Pascal translation errors.</p>
+ * <p>Java translation errors.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -16,77 +16,77 @@ namespace wci { namespace frontend { namespace java {
 
 using namespace std;
 
-bool PascalError::INITIALIZED = false;
+bool JavaError::INITIALIZED = false;
 
-map<PascalErrorCode, string> PascalError::SYNTAX_ERROR_MESSAGES;
+map<JavaErrorCode, string> JavaError::SYNTAX_ERROR_MESSAGES;
 
-void PascalError::initialize()
+void JavaError::initialize()
 {
     if (INITIALIZED) return;
 
-    vector<PascalErrorCode> error_codes =
+    vector<JavaErrorCode> error_codes =
     {
-        PascalErrorCode::ALREADY_FORWARDED,
-        PascalErrorCode::CASE_CONSTANT_REUSED,
-        PascalErrorCode::IDENTIFIER_REDEFINED,
-        PascalErrorCode::IDENTIFIER_UNDEFINED,
-        PascalErrorCode::INCOMPATIBLE_ASSIGNMENT,
-        PascalErrorCode::INCOMPATIBLE_TYPES,
-        PascalErrorCode::INVALID_ASSIGNMENT,
-        PascalErrorCode::INVALID_CHARACTER,
-        PascalErrorCode::INVALID_CONSTANT,
-        PascalErrorCode::INVALID_EXPONENT,
-        PascalErrorCode::INVALID_EXPRESSION,
-        PascalErrorCode::INVALID_FIELD,
-        PascalErrorCode::INVALID_FRACTION,
-        PascalErrorCode::INVALID_IDENTIFIER_USAGE,
-        PascalErrorCode::INVALID_INDEX_TYPE,
-        PascalErrorCode::INVALID_NUMBER,
-        PascalErrorCode::INVALID_STATEMENT,
-        PascalErrorCode::INVALID_SUBRANGE_TYPE,
-        PascalErrorCode::INVALID_TARGET,
-        PascalErrorCode::INVALID_TYPE,
-        PascalErrorCode::INVALID_VAR_PARM,
-        PascalErrorCode::MIN_GT_MAX,
-        PascalErrorCode::MISSING_BEGIN,
-        PascalErrorCode::MISSING_COLON,
-        PascalErrorCode::MISSING_COLON_EQUALS,
-        PascalErrorCode::MISSING_COMMA,
-        PascalErrorCode::MISSING_CONSTANT,
-        PascalErrorCode::MISSING_DO,
-        PascalErrorCode::MISSING_DOT_DOT,
-        PascalErrorCode::MISSING_END,
-        PascalErrorCode::MISSING_EQUALS,
-        PascalErrorCode::MISSING_FOR_CONTROL,
-        PascalErrorCode::MISSING_IDENTIFIER,
-        PascalErrorCode::MISSING_LEFT_BRACKET,
-        PascalErrorCode::MISSING_OF,
-        PascalErrorCode::MISSING_PERIOD,
-        PascalErrorCode::MISSING_PROGRAM,
-        PascalErrorCode::MISSING_RIGHT_BRACKET,
-        PascalErrorCode::MISSING_RIGHT_PAREN,
-        PascalErrorCode::MISSING_SEMICOLON,
-        PascalErrorCode::MISSING_THEN,
-        PascalErrorCode::MISSING_TO_DOWNTO,
-        PascalErrorCode::MISSING_UNTIL,
-        PascalErrorCode::MISSING_VARIABLE,
-        PascalErrorCode::NOT_CONSTANT_IDENTIFIER,
-        PascalErrorCode::NOT_RECORD_VARIABLE,
-        PascalErrorCode::NOT_TYPE_IDENTIFIER,
-        PascalErrorCode::RANGE_INTEGER,
-        PascalErrorCode::RANGE_REAL,
-        PascalErrorCode::STACK_OVERFLOW,
-        PascalErrorCode::TOO_MANY_LEVELS,
-        PascalErrorCode::TOO_MANY_SUBSCRIPTS,
-        PascalErrorCode::UNEXPECTED_EOF,
-        PascalErrorCode::UNEXPECTED_TOKEN,
-        PascalErrorCode::UNIMPLEMENTED,
-        PascalErrorCode::UNRECOGNIZABLE,
-        PascalErrorCode::WRONG_NUMBER_OF_PARMS,
+        JavaErrorCode::ALREADY_FORWARDED,
+        JavaErrorCode::CASE_CONSTANT_REUSED,
+        JavaErrorCode::IDENTIFIER_REDEFINED,
+        JavaErrorCode::IDENTIFIER_UNDEFINED,
+        JavaErrorCode::INCOMPATIBLE_ASSIGNMENT,
+        JavaErrorCode::INCOMPATIBLE_TYPES,
+        JavaErrorCode::INVALID_ASSIGNMENT,
+        JavaErrorCode::INVALID_CHARACTER,
+        JavaErrorCode::INVALID_CONSTANT,
+        JavaErrorCode::INVALID_EXPONENT,
+        JavaErrorCode::INVALID_EXPRESSION,
+        JavaErrorCode::INVALID_FIELD,
+        JavaErrorCode::INVALID_FRACTION,
+        JavaErrorCode::INVALID_IDENTIFIER_USAGE,
+        JavaErrorCode::INVALID_INDEX_TYPE,
+        JavaErrorCode::INVALID_NUMBER,
+        JavaErrorCode::INVALID_STATEMENT,
+        JavaErrorCode::INVALID_SUBRANGE_TYPE,
+        JavaErrorCode::INVALID_TARGET,
+        JavaErrorCode::INVALID_TYPE,
+        JavaErrorCode::INVALID_VAR_PARM,
+        JavaErrorCode::MIN_GT_MAX,
+        JavaErrorCode::MISSING_BEGIN,
+        JavaErrorCode::MISSING_COLON,
+        JavaErrorCode::MISSING_COLON_EQUALS,
+        JavaErrorCode::MISSING_COMMA,
+        JavaErrorCode::MISSING_CONSTANT,
+        JavaErrorCode::MISSING_DO,
+        JavaErrorCode::MISSING_DOT_DOT,
+        JavaErrorCode::MISSING_END,
+        JavaErrorCode::MISSING_EQUALS,
+        JavaErrorCode::MISSING_FOR_CONTROL,
+        JavaErrorCode::MISSING_IDENTIFIER,
+        JavaErrorCode::MISSING_LEFT_BRACKET,
+        JavaErrorCode::MISSING_OF,
+        JavaErrorCode::MISSING_PERIOD,
+        JavaErrorCode::MISSING_PROGRAM,
+        JavaErrorCode::MISSING_RIGHT_BRACKET,
+        JavaErrorCode::MISSING_RIGHT_PAREN,
+        JavaErrorCode::MISSING_SEMICOLON,
+        JavaErrorCode::MISSING_THEN,
+        JavaErrorCode::MISSING_TO_DOWNTO,
+        JavaErrorCode::MISSING_UNTIL,
+        JavaErrorCode::MISSING_VARIABLE,
+        JavaErrorCode::NOT_CONSTANT_IDENTIFIER,
+        JavaErrorCode::NOT_RECORD_VARIABLE,
+        JavaErrorCode::NOT_TYPE_IDENTIFIER,
+        JavaErrorCode::RANGE_INTEGER,
+        JavaErrorCode::RANGE_REAL,
+        JavaErrorCode::STACK_OVERFLOW,
+        JavaErrorCode::TOO_MANY_LEVELS,
+        JavaErrorCode::TOO_MANY_SUBSCRIPTS,
+        JavaErrorCode::UNEXPECTED_EOF,
+        JavaErrorCode::UNEXPECTED_TOKEN,
+        JavaErrorCode::UNIMPLEMENTED,
+        JavaErrorCode::UNRECOGNIZABLE,
+        JavaErrorCode::WRONG_NUMBER_OF_PARMS,
 
         // Fatal errors.
-        PascalErrorCode::IO_ERROR,
-        PascalErrorCode::TOO_MANY_ERRORS
+        JavaErrorCode::IO_ERROR,
+        JavaErrorCode::TOO_MANY_ERRORS
     };
 
     vector<string> error_messages =
@@ -162,4 +162,4 @@ void PascalError::initialize()
     INITIALIZED = true;
 }
 
-}}}  // namespace wci::frontend::pascal
+}}}  // namespace wci::frontend::Java

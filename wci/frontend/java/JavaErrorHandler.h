@@ -1,7 +1,7 @@
 /**
- * <h1>PascalErrorHandler</h1>
+ * <h1>JavaErrorHandler</h1>
  *
- * <p>Error handler Pascal syntax errors.</p>
+ * <p>Error handler Java syntax errors.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -18,7 +18,7 @@ namespace wci { namespace frontend { namespace java {
 using namespace std;
 using namespace wci::frontend;
 
-class PascalErrorHandler
+class JavaErrorHandler
 {
 public:
     /**
@@ -34,14 +34,14 @@ public:
      * @param parser the parser.
      * @return the flagger string.
      */
-    void flag(Token *token, PascalErrorCode error_code, Parser *parser);
+    void flag(Token *token, JavaErrorCode error_code, Parser *parser);
 
     /**
      * Abort the translation.
      * @param errorCode the error code.
      * @param parser the parser.
      */
-    void abort_translation(PascalErrorCode error_code, Parser *parser);
+    void abort_translation(JavaErrorCode error_code, Parser *parser);
 
 private:
     static int error_count;

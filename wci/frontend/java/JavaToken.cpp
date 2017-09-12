@@ -1,7 +1,7 @@
 /**
- * <h1>PascalToken</h1>
+ * <h1>JavaToken</h1>
  *
- * <p>Base class for Pascal token classes.</p>
+ * <p>Base class for Java token classes.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -16,13 +16,13 @@ namespace wci { namespace frontend { namespace java {
 
 using namespace std;
 
-map<string, PascalTokenType> PascalToken::RESERVED_WORDS;
-map<string, PascalTokenType> PascalToken::SPECIAL_SYMBOLS;
-map<PascalTokenType, string> PascalToken::SPECIAL_SYMBOL_NAMES;
+map<string, JavaTokenType> JavaToken::RESERVED_WORDS;
+map<string, JavaTokenType> JavaToken::SPECIAL_SYMBOLS;
+map<JavaTokenType, string> JavaToken::SPECIAL_SYMBOL_NAMES;
 
-bool PascalToken::INITIALIZED = false;
+bool JavaToken::INITIALIZED = false;
 
-void PascalToken::initialize()
+void JavaToken::initialize()
 {
     if (INITIALIZED) return;
 
@@ -34,42 +34,42 @@ void PascalToken::initialize()
 		"switch", "super", "this", "throw", "void", "volatile", "while"
     };
 
-    vector<PascalTokenType> rw_keys =
+    vector<JavaTokenType> rw_keys =
     {
-		PascalTokenType::ABSTRACT,
-		PascalTokenType::BREAK,
-		PascalTokenType::CASE,
-		PascalTokenType::CHAR,
-		PascalTokenType::CLASS,
-		PascalTokenType::CONST,
-		PascalTokenType::CONTINUE,
-		PascalTokenType::DO,
+		JavaTokenType::ABSTRACT,
+		JavaTokenType::BREAK,
+		JavaTokenType::CASE,
+		JavaTokenType::CHAR,
+		JavaTokenType::CLASS,
+		JavaTokenType::CONST,
+		JavaTokenType::CONTINUE,
+		JavaTokenType::DO,
 
-		PascalTokenType::DOUBLE,
-		PascalTokenType::ELSE,
-		PascalTokenType::ENUM,
-		PascalTokenType::EXTENDS,
-		PascalTokenType::FLOAT,
-		PascalTokenType::FOR,
-		PascalTokenType::GOTO,
-		PascalTokenType::IF,
+		JavaTokenType::DOUBLE,
+		JavaTokenType::ELSE,
+		JavaTokenType::ENUM,
+		JavaTokenType::EXTENDS,
+		JavaTokenType::FLOAT,
+		JavaTokenType::FOR,
+		JavaTokenType::GOTO,
+		JavaTokenType::IF,
 
-		PascalTokenType::INT,
-		PascalTokenType::LONG,
-		PascalTokenType::NATIVE,
-		PascalTokenType::RETURN,
-		PascalTokenType::SHORT,
-		PascalTokenType::PACKAGE,
-		PascalTokenType::PROTECTED,
-		PascalTokenType::BIT_COMPLEMENT,
+		JavaTokenType::INT,
+		JavaTokenType::LONG,
+		JavaTokenType::NATIVE,
+		JavaTokenType::RETURN,
+		JavaTokenType::SHORT,
+		JavaTokenType::PACKAGE,
+		JavaTokenType::PROTECTED,
+		JavaTokenType::BIT_COMPLEMENT,
 
-		PascalTokenType::SWITCH,
-		PascalTokenType::SUPER,
-		PascalTokenType::THIS,
-		PascalTokenType::THROW,
-		PascalTokenType::VOID,
-		PascalTokenType::VOLATILE,
-		PascalTokenType::WHILE
+		JavaTokenType::SWITCH,
+		JavaTokenType::SUPER,
+		JavaTokenType::THIS,
+		JavaTokenType::THROW,
+		JavaTokenType::VOID,
+		JavaTokenType::VOLATILE,
+		JavaTokenType::WHILE
     };
 
     for (int i = 0; i < rw_strings.size(); i++)
@@ -85,66 +85,66 @@ void PascalToken::initialize()
 		"%=", "&=", "^=", "!=", "<<=", ">>=", "||", "&&", "//", "/*", "*/"
     };
 
-    vector<PascalTokenType> ss_keys =
+    vector<JavaTokenType> ss_keys =
     {
-		PascalTokenType::BIT_COMPLEMENT,
-		PascalTokenType::NOT,
-		PascalTokenType::ANNOTATION,
-		PascalTokenType::MOD,
-		PascalTokenType::BIT_EXCLUSIVE_OR,
-		PascalTokenType::BIT_AND,
+		JavaTokenType::BIT_COMPLEMENT,
+		JavaTokenType::NOT,
+		JavaTokenType::ANNOTATION,
+		JavaTokenType::MOD,
+		JavaTokenType::BIT_EXCLUSIVE_OR,
+		JavaTokenType::BIT_AND,
 
-		PascalTokenType::MULT,
-		PascalTokenType::MINUS,
-		PascalTokenType::PLUS,
-		PascalTokenType::EQUALS,
-		PascalTokenType::BIT_INLCUSIVE_OR,
-		PascalTokenType::SLASH,
-		PascalTokenType::COLON,
+		JavaTokenType::MULT,
+		JavaTokenType::MINUS,
+		JavaTokenType::PLUS,
+		JavaTokenType::EQUALS,
+		JavaTokenType::BIT_INLCUSIVE_OR,
+		JavaTokenType::SLASH,
+		JavaTokenType::COLON,
 
-		PascalTokenType::SEMICOLON,
-		PascalTokenType::QUESTION_MARK,
-		PascalTokenType::LESS_THAN,
-		PascalTokenType::GREATER_THAN,
-		PascalTokenType::DOT,
-		PascalTokenType::COMMA,
+		JavaTokenType::SEMICOLON,
+		JavaTokenType::QUESTION_MARK,
+		JavaTokenType::LESS_THAN,
+		JavaTokenType::GREATER_THAN,
+		JavaTokenType::DOT,
+		JavaTokenType::COMMA,
 
-		PascalTokenType::QUOTE,
-		PascalTokenType::DOUBLE_QUOTE,
-		PascalTokenType::LEFT_PAREN,
-		PascalTokenType::RIGHT_PAREN,
-		PascalTokenType::LEFT_BRACKET,
-		PascalTokenType::RIGHT_BRACKET,
+		JavaTokenType::QUOTE,
+		JavaTokenType::DOUBLE_QUOTE,
+		JavaTokenType::LEFT_PAREN,
+		JavaTokenType::RIGHT_PAREN,
+		JavaTokenType::LEFT_BRACKET,
+		JavaTokenType::RIGHT_BRACKET,
 
-		PascalTokenType::LEFT_BRACE,
-		PascalTokenType::RIGHT_BRACE,
-		PascalTokenType::PLUS_PLUS,
-		PascalTokenType::MINUS_MINUS,
-		PascalTokenType::SIGNED_LEFT_SHIFT,
+		JavaTokenType::LEFT_BRACE,
+		JavaTokenType::RIGHT_BRACE,
+		JavaTokenType::PLUS_PLUS,
+		JavaTokenType::MINUS_MINUS,
+		JavaTokenType::SIGNED_LEFT_SHIFT,
 
-		PascalTokenType::SIGNED_RIGHT_SHIFT,
-		PascalTokenType::LESS_EQUALS,
-		PascalTokenType::GREATER_EQUALS,
-		PascalTokenType::PLUS_EQUALS,
-		PascalTokenType::MINUS_EQUALS,
+		JavaTokenType::SIGNED_RIGHT_SHIFT,
+		JavaTokenType::LESS_EQUALS,
+		JavaTokenType::GREATER_EQUALS,
+		JavaTokenType::PLUS_EQUALS,
+		JavaTokenType::MINUS_EQUALS,
 
-		PascalTokenType::MULT_EQUALS,
-		PascalTokenType::SLASH_EQUALS,
-		PascalTokenType::EQUALS_EQUALS,
-		PascalTokenType::EXCLUSIVE_OR_EQUALS,
+		JavaTokenType::MULT_EQUALS,
+		JavaTokenType::SLASH_EQUALS,
+		JavaTokenType::EQUALS_EQUALS,
+		JavaTokenType::EXCLUSIVE_OR_EQUALS,
 
-		PascalTokenType::MOD_EQUALS,
-		PascalTokenType::AND_EQUALS,
-		PascalTokenType::INCLUSIVE_OR_EQUALS,
-		PascalTokenType::NOT_EQUALS,
-		PascalTokenType::LEFT_SHIFT_EQUALS,
+		JavaTokenType::MOD_EQUALS,
+		JavaTokenType::AND_EQUALS,
+		JavaTokenType::INCLUSIVE_OR_EQUALS,
+		JavaTokenType::NOT_EQUALS,
+		JavaTokenType::LEFT_SHIFT_EQUALS,
 
-		PascalTokenType::RIGHT_SHIFT_EQUALS,
-		PascalTokenType::LOGIC_OR,
-		PascalTokenType::LOGIC_AND,
-		PascalTokenType::SLASH_SLASH,
-		PascalTokenType::SLASH_STAR,
-		PascalTokenType::STAR_SLASH
+		JavaTokenType::RIGHT_SHIFT_EQUALS,
+		JavaTokenType::LOGIC_OR,
+		JavaTokenType::LOGIC_AND,
+		JavaTokenType::SLASH_SLASH,
+		JavaTokenType::SLASH_STAR,
+		JavaTokenType::STAR_SLASH
     };
 
     for (int i = 0; i < ss_strings.size(); i++)
@@ -173,7 +173,7 @@ void PascalToken::initialize()
     INITIALIZED = true;
 }
 
-PascalToken::PascalToken(Source *source) throw (string)
+JavaToken::JavaToken(Source *source) throw (string)
     : Token(source)
 {
     initialize();

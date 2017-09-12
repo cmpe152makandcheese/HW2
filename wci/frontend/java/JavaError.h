@@ -1,7 +1,7 @@
 /**
- * <h1>PascalError</h1>
+ * <h1>JavaError</h1>
  *
- * <p>Pascal translation errors.</p>
+ * <p>Java translation errors.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -17,9 +17,9 @@ namespace wci { namespace frontend { namespace java {
 using namespace std;
 
 /**
- * Pascal error codes.
+ * Java error codes.
  */
-enum class PascalErrorCode
+enum class JavaErrorCode
 {
     ALREADY_FORWARDED,
     CASE_CONSTANT_REUSED,
@@ -84,71 +84,71 @@ enum class PascalErrorCode
     TOO_MANY_ERRORS
 };
 
-constexpr PascalErrorCode ALREADY_FORWARDED = PascalErrorCode::ALREADY_FORWARDED;
-constexpr PascalErrorCode CASE_CONSTANT_REUSED = PascalErrorCode::CASE_CONSTANT_REUSED;
-constexpr PascalErrorCode IDENTIFIER_REDEFINED = PascalErrorCode::IDENTIFIER_REDEFINED;
-constexpr PascalErrorCode IDENTIFIER_UNDEFINED = PascalErrorCode::IDENTIFIER_UNDEFINED;
-constexpr PascalErrorCode INCOMPATIBLE_ASSIGNMENT = PascalErrorCode::INCOMPATIBLE_ASSIGNMENT;
-constexpr PascalErrorCode INCOMPATIBLE_TYPES = PascalErrorCode::INCOMPATIBLE_TYPES;
-constexpr PascalErrorCode INVALID_ASSIGNMENT = PascalErrorCode::INVALID_ASSIGNMENT;
-constexpr PascalErrorCode INVALID_CHARACTER = PascalErrorCode::INVALID_CHARACTER;
-constexpr PascalErrorCode INVALID_CONSTANT = PascalErrorCode::INVALID_CONSTANT;
-constexpr PascalErrorCode INVALID_EXPONENT = PascalErrorCode::INVALID_EXPONENT;
-constexpr PascalErrorCode INVALID_EXPRESSION = PascalErrorCode::INVALID_EXPRESSION;
-constexpr PascalErrorCode INVALID_FIELD = PascalErrorCode::INVALID_FIELD;
-constexpr PascalErrorCode INVALID_FRACTION = PascalErrorCode::INVALID_FRACTION;
-constexpr PascalErrorCode INVALID_IDENTIFIER_USAGE = PascalErrorCode::INVALID_IDENTIFIER_USAGE;
-constexpr PascalErrorCode INVALID_INDEX_TYPE = PascalErrorCode::INVALID_INDEX_TYPE;
-constexpr PascalErrorCode INVALID_NUMBER = PascalErrorCode::INVALID_NUMBER;
-constexpr PascalErrorCode INVALID_STATEMENT = PascalErrorCode::INVALID_STATEMENT;
-constexpr PascalErrorCode INVALID_SUBRANGE_TYPE = PascalErrorCode::INVALID_SUBRANGE_TYPE;
-constexpr PascalErrorCode INVALID_TARGET = PascalErrorCode::INVALID_TARGET;
-constexpr PascalErrorCode INVALID_TYPE = PascalErrorCode::INVALID_TYPE;
-constexpr PascalErrorCode INVALID_VAR_PARM = PascalErrorCode::INVALID_VAR_PARM;
-constexpr PascalErrorCode MIN_GT_MAX = PascalErrorCode::MIN_GT_MAX;
-constexpr PascalErrorCode MISSING_BEGIN = PascalErrorCode::MISSING_BEGIN;
-constexpr PascalErrorCode MISSING_COLON = PascalErrorCode::ALREADY_FORWARDED;
-constexpr PascalErrorCode MISSING_COMMA = PascalErrorCode::MISSING_COMMA;
-constexpr PascalErrorCode MISSING_CONSTANT = PascalErrorCode::MISSING_CONSTANT;
-constexpr PascalErrorCode MISSING_DO = PascalErrorCode::MISSING_DO;
-constexpr PascalErrorCode MISSING_DOT_DOT = PascalErrorCode::MISSING_DOT_DOT;
-constexpr PascalErrorCode MISSING_END = PascalErrorCode::MISSING_END;
-constexpr PascalErrorCode MISSING_EQUALS = PascalErrorCode::MISSING_EQUALS;
-constexpr PascalErrorCode MISSING_COLON_EQUALS = PascalErrorCode::MISSING_COLON_EQUALS;
-constexpr PascalErrorCode MISSING_FOR_CONTROL = PascalErrorCode::MISSING_FOR_CONTROL;
-constexpr PascalErrorCode MISSING_IDENTIFIER = PascalErrorCode::MISSING_IDENTIFIER;
-constexpr PascalErrorCode MISSING_LEFT_BRACKET = PascalErrorCode::MISSING_LEFT_BRACKET;
-constexpr PascalErrorCode MISSING_OF = PascalErrorCode::MISSING_OF;
-constexpr PascalErrorCode MISSING_PERIOD = PascalErrorCode::MISSING_PERIOD;
-constexpr PascalErrorCode MISSING_PROGRAM = PascalErrorCode::MISSING_PROGRAM;
-constexpr PascalErrorCode MISSING_RIGHT_BRACKET = PascalErrorCode::MISSING_RIGHT_BRACKET;
-constexpr PascalErrorCode MISSING_RIGHT_PAREN = PascalErrorCode::MISSING_RIGHT_PAREN;
-constexpr PascalErrorCode MISSING_SEMICOLON = PascalErrorCode::MISSING_SEMICOLON;
-constexpr PascalErrorCode MISSING_THEN = PascalErrorCode::MISSING_THEN;
-constexpr PascalErrorCode MISSING_TO_DOWNTO = PascalErrorCode::MISSING_TO_DOWNTO;
-constexpr PascalErrorCode MISSING_UNTIL = PascalErrorCode::MISSING_UNTIL;
-constexpr PascalErrorCode MISSING_VARIABLE = PascalErrorCode::MISSING_VARIABLE;
-constexpr PascalErrorCode NOT_CONSTANT_IDENTIFIER = PascalErrorCode::NOT_CONSTANT_IDENTIFIER;
-constexpr PascalErrorCode NOT_RECORD_VARIABLE = PascalErrorCode::NOT_RECORD_VARIABLE;
-constexpr PascalErrorCode NOT_TYPE_IDENTIFIER = PascalErrorCode::NOT_TYPE_IDENTIFIER;
-constexpr PascalErrorCode RANGE_INTEGER = PascalErrorCode::RANGE_INTEGER;
-constexpr PascalErrorCode RANGE_REAL = PascalErrorCode::RANGE_REAL;
-constexpr PascalErrorCode STACK_OVERFLOW = PascalErrorCode::STACK_OVERFLOW;
-constexpr PascalErrorCode TOO_MANY_LEVELS = PascalErrorCode::TOO_MANY_LEVELS;
-constexpr PascalErrorCode TOO_MANY_SUBSCRIPTS = PascalErrorCode::TOO_MANY_SUBSCRIPTS;
-constexpr PascalErrorCode UNEXPECTED_EOF = PascalErrorCode::UNEXPECTED_EOF;
-constexpr PascalErrorCode UNEXPECTED_TOKEN = PascalErrorCode::UNEXPECTED_TOKEN;
-constexpr PascalErrorCode UNIMPLEMENTED = PascalErrorCode::UNIMPLEMENTED;
-constexpr PascalErrorCode UNRECOGNIZABLE = PascalErrorCode::UNRECOGNIZABLE;
-constexpr PascalErrorCode WRONG_NUMBER_OF_PARMS = PascalErrorCode::WRONG_NUMBER_OF_PARMS;
+constexpr JavaErrorCode ALREADY_FORWARDED = JavaErrorCode::ALREADY_FORWARDED;
+constexpr JavaErrorCode CASE_CONSTANT_REUSED = JavaErrorCode::CASE_CONSTANT_REUSED;
+constexpr JavaErrorCode IDENTIFIER_REDEFINED = JavaErrorCode::IDENTIFIER_REDEFINED;
+constexpr JavaErrorCode IDENTIFIER_UNDEFINED = JavaErrorCode::IDENTIFIER_UNDEFINED;
+constexpr JavaErrorCode INCOMPATIBLE_ASSIGNMENT = JavaErrorCode::INCOMPATIBLE_ASSIGNMENT;
+constexpr JavaErrorCode INCOMPATIBLE_TYPES = JavaErrorCode::INCOMPATIBLE_TYPES;
+constexpr JavaErrorCode INVALID_ASSIGNMENT = JavaErrorCode::INVALID_ASSIGNMENT;
+constexpr JavaErrorCode INVALID_CHARACTER = JavaErrorCode::INVALID_CHARACTER;
+constexpr JavaErrorCode INVALID_CONSTANT = JavaErrorCode::INVALID_CONSTANT;
+constexpr JavaErrorCode INVALID_EXPONENT = JavaErrorCode::INVALID_EXPONENT;
+constexpr JavaErrorCode INVALID_EXPRESSION = JavaErrorCode::INVALID_EXPRESSION;
+constexpr JavaErrorCode INVALID_FIELD = JavaErrorCode::INVALID_FIELD;
+constexpr JavaErrorCode INVALID_FRACTION = JavaErrorCode::INVALID_FRACTION;
+constexpr JavaErrorCode INVALID_IDENTIFIER_USAGE = JavaErrorCode::INVALID_IDENTIFIER_USAGE;
+constexpr JavaErrorCode INVALID_INDEX_TYPE = JavaErrorCode::INVALID_INDEX_TYPE;
+constexpr JavaErrorCode INVALID_NUMBER = JavaErrorCode::INVALID_NUMBER;
+constexpr JavaErrorCode INVALID_STATEMENT = JavaErrorCode::INVALID_STATEMENT;
+constexpr JavaErrorCode INVALID_SUBRANGE_TYPE = JavaErrorCode::INVALID_SUBRANGE_TYPE;
+constexpr JavaErrorCode INVALID_TARGET = JavaErrorCode::INVALID_TARGET;
+constexpr JavaErrorCode INVALID_TYPE = JavaErrorCode::INVALID_TYPE;
+constexpr JavaErrorCode INVALID_VAR_PARM = JavaErrorCode::INVALID_VAR_PARM;
+constexpr JavaErrorCode MIN_GT_MAX = JavaErrorCode::MIN_GT_MAX;
+constexpr JavaErrorCode MISSING_BEGIN = JavaErrorCode::MISSING_BEGIN;
+constexpr JavaErrorCode MISSING_COLON = JavaErrorCode::ALREADY_FORWARDED;
+constexpr JavaErrorCode MISSING_COMMA = JavaErrorCode::MISSING_COMMA;
+constexpr JavaErrorCode MISSING_CONSTANT = JavaErrorCode::MISSING_CONSTANT;
+constexpr JavaErrorCode MISSING_DO = JavaErrorCode::MISSING_DO;
+constexpr JavaErrorCode MISSING_DOT_DOT = JavaErrorCode::MISSING_DOT_DOT;
+constexpr JavaErrorCode MISSING_END = JavaErrorCode::MISSING_END;
+constexpr JavaErrorCode MISSING_EQUALS = JavaErrorCode::MISSING_EQUALS;
+constexpr JavaErrorCode MISSING_COLON_EQUALS = JavaErrorCode::MISSING_COLON_EQUALS;
+constexpr JavaErrorCode MISSING_FOR_CONTROL = JavaErrorCode::MISSING_FOR_CONTROL;
+constexpr JavaErrorCode MISSING_IDENTIFIER = JavaErrorCode::MISSING_IDENTIFIER;
+constexpr JavaErrorCode MISSING_LEFT_BRACKET = JavaErrorCode::MISSING_LEFT_BRACKET;
+constexpr JavaErrorCode MISSING_OF = JavaErrorCode::MISSING_OF;
+constexpr JavaErrorCode MISSING_PERIOD = JavaErrorCode::MISSING_PERIOD;
+constexpr JavaErrorCode MISSING_PROGRAM = JavaErrorCode::MISSING_PROGRAM;
+constexpr JavaErrorCode MISSING_RIGHT_BRACKET = JavaErrorCode::MISSING_RIGHT_BRACKET;
+constexpr JavaErrorCode MISSING_RIGHT_PAREN = JavaErrorCode::MISSING_RIGHT_PAREN;
+constexpr JavaErrorCode MISSING_SEMICOLON = JavaErrorCode::MISSING_SEMICOLON;
+constexpr JavaErrorCode MISSING_THEN = JavaErrorCode::MISSING_THEN;
+constexpr JavaErrorCode MISSING_TO_DOWNTO = JavaErrorCode::MISSING_TO_DOWNTO;
+constexpr JavaErrorCode MISSING_UNTIL = JavaErrorCode::MISSING_UNTIL;
+constexpr JavaErrorCode MISSING_VARIABLE = JavaErrorCode::MISSING_VARIABLE;
+constexpr JavaErrorCode NOT_CONSTANT_IDENTIFIER = JavaErrorCode::NOT_CONSTANT_IDENTIFIER;
+constexpr JavaErrorCode NOT_RECORD_VARIABLE = JavaErrorCode::NOT_RECORD_VARIABLE;
+constexpr JavaErrorCode NOT_TYPE_IDENTIFIER = JavaErrorCode::NOT_TYPE_IDENTIFIER;
+constexpr JavaErrorCode RANGE_INTEGER = JavaErrorCode::RANGE_INTEGER;
+constexpr JavaErrorCode RANGE_REAL = JavaErrorCode::RANGE_REAL;
+constexpr JavaErrorCode STACK_OVERFLOW = JavaErrorCode::STACK_OVERFLOW;
+constexpr JavaErrorCode TOO_MANY_LEVELS = JavaErrorCode::TOO_MANY_LEVELS;
+constexpr JavaErrorCode TOO_MANY_SUBSCRIPTS = JavaErrorCode::TOO_MANY_SUBSCRIPTS;
+constexpr JavaErrorCode UNEXPECTED_EOF = JavaErrorCode::UNEXPECTED_EOF;
+constexpr JavaErrorCode UNEXPECTED_TOKEN = JavaErrorCode::UNEXPECTED_TOKEN;
+constexpr JavaErrorCode UNIMPLEMENTED = JavaErrorCode::UNIMPLEMENTED;
+constexpr JavaErrorCode UNRECOGNIZABLE = JavaErrorCode::UNRECOGNIZABLE;
+constexpr JavaErrorCode WRONG_NUMBER_OF_PARMS = JavaErrorCode::WRONG_NUMBER_OF_PARMS;
 
-constexpr PascalErrorCode IO_ERROR = PascalErrorCode::IO_ERROR;
-constexpr PascalErrorCode TOO_MANY_ERRORS = PascalErrorCode::TOO_MANY_ERRORS;
+constexpr JavaErrorCode IO_ERROR = JavaErrorCode::IO_ERROR;
+constexpr JavaErrorCode TOO_MANY_ERRORS = JavaErrorCode::TOO_MANY_ERRORS;
 
-class PascalError
+class JavaError
 {
 public:
-    static map<PascalErrorCode, string> SYNTAX_ERROR_MESSAGES;
+    static map<JavaErrorCode, string> SYNTAX_ERROR_MESSAGES;
 
     /**
      * Initialize the static map.

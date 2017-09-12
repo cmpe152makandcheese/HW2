@@ -19,6 +19,7 @@
 namespace wci { namespace frontend {
 
 using namespace wci::frontend::java;
+using namespace wci::frontend::pascal;
 
 Parser *FrontendFactory::create_parser(string language, string type,
 						               Source *source)
@@ -29,11 +30,11 @@ Parser *FrontendFactory::create_parser(string language, string type,
 		Scanner *scanner = new PascalScanner(source);
 		return new PascalParserTD(scanner);
 	}
-	// Change pascal scanner & parser to java TIM
+	// Change pascal scanner & parser to java
 	else if ((language == "Java") && (type == "top-down"))
 	{
-		Scanner *scanner = new PascalScanner(source);
-		return new PascalParserTD(scanner);
+		Scanner *scanner = new JavaScanner(source);
+		return new JavaParserTD(scanner);
 	}
 	else if ((language != "Pascal") && (language != "Java")) {
 		throw new string("Parser factory: Invalid language '" +

@@ -1,7 +1,7 @@
 /**
- * <h1>PascalScanner</h1>
+ * <h1>JavaScanner</h1>
  *
- * <p>The Pascal scanner.</p>
+ * <p>The Java scanner.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -18,18 +18,18 @@ namespace wci { namespace frontend { namespace java {
 using namespace std;
 using namespace wci::frontend;
 
-class PascalScanner : public Scanner
+class JavaScanner : public Scanner
 {
 public:
     /**
      * Constructor
      * @param source the source to be used with this scanner.
      */
-    PascalScanner(Source *source);
+    JavaScanner(Source *source);
 
 protected:
     /**
-     * Extract and return the next Pascal token from the source.
+     * Extract and return the next Java token from the source.
      * @return the next token.
      * @throw a string message if an error occurred.
      */
@@ -45,4 +45,4 @@ private:
 
 }}} // namespace wci::frontend::java
 
-#endif /* WCI_FRONTEND_JAVA_PASCALSCANNER_H_ */
+#endif /* WCI_FRONTEND_JAVA_JavaSCANNER_H_ */

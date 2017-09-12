@@ -1,7 +1,7 @@
 /**
- * <h1>PascalErrorToken</h1>
+ * <h1>JavaErrorToken</h1>
  *
- * <p>Pascal error token.</p>
+ * <p>Java error token.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -19,7 +19,7 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
 using namespace std;
 using namespace wci::frontend::java;
 
-class PascalErrorToken : public PascalToken
+class JavaErrorToken : public JavaToken
 {
 public:
     /**
@@ -29,7 +29,7 @@ public:
      * @param tokenText the text of the erroneous token.
      * @throw a string message if an error occurred.
      */
-    PascalErrorToken(Source *source, PascalErrorCode error_code,
+    JavaErrorToken(Source *source, JavaErrorCode error_code,
                      string token_text)
         throw (string);
 

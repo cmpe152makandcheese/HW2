@@ -1,7 +1,7 @@
 /**
- * <h1>PascalScanner</h1>
+ * <h1>JavaScanner</h1>
  *
- * <p>The Pascal scanner.</p>
+ * <p>The Java scanner.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -24,11 +24,11 @@ using namespace std;
 using namespace wci::frontend;
 using namespace wci::frontend::java::tokens;
 
-PascalScanner::PascalScanner(Source *source) : Scanner(source)
+JavaScanner::JavaScanner(Source *source) : Scanner(source)
 {
 }
 
-Token *PascalScanner::extract_token() throw (string)
+Token *JavaScanner::extract_token() throw (string)
 {
     skip_white_space();
 
@@ -46,31 +46,31 @@ Token *PascalScanner::extract_token() throw (string)
     }
     else if (isalpha(current_ch))
     {
-        token = new PascalWordToken(source);
+        token = new JavaWordToken(source);
     }
     else if (isdigit(current_ch))
     {
-        token = new PascalNumberToken(source);
+        token = new JavaNumberToken(source);
     }
     else if (current_ch == '\'')
     {
-        token = new PascalStringToken(source);
+        token = new JavaStringToken(source);
     }
-    else if (PascalToken::SPECIAL_SYMBOLS.find(string_ch)
-                != PascalToken::SPECIAL_SYMBOLS.end())
+    else if (JavaToken::SPECIAL_SYMBOLS.find(string_ch)
+                != JavaToken::SPECIAL_SYMBOLS.end())
     {
-        token = new PascalSpecialSymbolToken(source);
+        token = new JavaSpecialSymbolToken(source);
     }
     else
     {
-        token = new PascalErrorToken(source, INVALID_CHARACTER, string_ch);
+        token = new JavaErrorToken(source, INVALID_CHARACTER, string_ch);
         next_char();  // consume character
     }
 
     return token;
 }
 
-void PascalScanner::skip_white_space() throw (string)
+void JavaScanner::skip_white_space() throw (string)
 {
     char current_ch = current_char();
     bool block_comment_finish = false;
