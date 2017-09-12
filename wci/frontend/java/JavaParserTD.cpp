@@ -1,7 +1,7 @@
 /**
- * <h1>PascalParserTD</h1>
+ * <h1>JavaParserTD</h1>
  *
- * <p>The top-down Pascal parser.</p>
+ * <p>The top-down Java parser.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -23,19 +23,19 @@ using namespace std::chrono;
 using namespace wci::frontend;
 using namespace wci::message;
 
-PascalErrorHandler PascalParserTD::error_handler;
+JavaErrorHandler JavaParserTD::error_handler;
 
-PascalParserTD::PascalParserTD(Scanner *scanner) : Parser(scanner)
+JavaParserTD::JavaParserTD(Scanner *scanner) : Parser(scanner)
 {
-    PascalError::initialize();
+    JavaError::initialize();
 }
 
-PascalParserTD::PascalParserTD(PascalParserTD *parent)
+JavaParserTD::JavaParserTD(JavaParserTD *parent)
     : Parser(parent->get_scanner())
 {
 }
 
-void PascalParserTD::parse() throw (string)
+void JavaParserTD::parse() throw (string)
 {
     Token *token = nullptr;
     int last_line_number;
@@ -50,7 +50,7 @@ void PascalParserTD::parse() throw (string)
         string type_str;
         string value_str;
 
-        switch ((PascalTokenType) token_type)
+        switch ((JavaTokenType) token_type)
         {
             case PT_STRING:
             {
@@ -97,8 +97,8 @@ void PascalParserTD::parse() throw (string)
                 else
                 {
                     type_str =
-                        PascalToken::SPECIAL_SYMBOL_NAMES[
-                                           (PascalTokenType) token_type];
+                        JavaToken::SPECIAL_SYMBOL_NAMES[
+                                           (JavaTokenType) token_type];
                 }
 
                 break;
@@ -118,8 +118,8 @@ void PascalParserTD::parse() throw (string)
         }
         else
         {
-            PascalErrorCode error_code =
-                                (PascalErrorCode) token->get_value()->i;
+            JavaErrorCode error_code =
+                                (JavaErrorCode) token->get_value()->i;
             error_handler.flag(token, error_code, this);
         }
     }
@@ -135,7 +135,7 @@ void PascalParserTD::parse() throw (string)
     send_message(message);
 }
 
-int PascalParserTD::get_error_count() const
+int JavaParserTD::get_error_count() const
 {
     return error_handler.get_error_count();
 }

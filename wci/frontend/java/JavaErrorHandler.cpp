@@ -1,7 +1,7 @@
 /**
- * <h1>PascalErrorHandler</h1>
+ * <h1>JavaErrorHandler</h1>
  *
- * <p>Error handler Pascal syntax errors.</p>
+ * <p>Error handler Java syntax errors.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -18,16 +18,16 @@ namespace wci { namespace frontend { namespace java {
 using namespace std;
 using namespace wci::frontend;
 
-const int PascalErrorHandler::MAX_ERRORS = 25;
-int PascalErrorHandler::error_count = 0;
+const int JavaErrorHandler::MAX_ERRORS = 25;
+int JavaErrorHandler::error_count = 0;
 
-int PascalErrorHandler::get_error_count() const { return error_count; }
+int JavaErrorHandler::get_error_count() const { return error_count; }
 
-void PascalErrorHandler::flag(Token *token, PascalErrorCode error_code,
+void JavaErrorHandler::flag(Token *token, JavaErrorCode error_code,
                               Parser *parser)
 {
     // Notify the parser's listeners.
-    string error_message = PascalError::SYNTAX_ERROR_MESSAGES[error_code];
+    string error_message = JavaError::SYNTAX_ERROR_MESSAGES[error_code];
     Message message(SYNTAX_ERROR,
                     LINE_NUMBER, to_string(token->get_line_number()),
                     POSITION, to_string(token->get_position()),
@@ -41,12 +41,12 @@ void PascalErrorHandler::flag(Token *token, PascalErrorCode error_code,
     }
 }
 
-void PascalErrorHandler::abort_translation(PascalErrorCode error_code,
+void JavaErrorHandler::abort_translation(JavaErrorCode error_code,
                                            Parser *parser)
 {
     // Notify the parser's listeners and then abort.
     string error_message = "FATAL ERROR: " +
-                           PascalError::SYNTAX_ERROR_MESSAGES[error_code];
+                           JavaError::SYNTAX_ERROR_MESSAGES[error_code];
     Message message(SYNTAX_ERROR,
                     LINE_NUMBER, "0",
                     POSITION, "0",

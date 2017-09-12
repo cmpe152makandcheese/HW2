@@ -1,7 +1,7 @@
 /**
- * <h1>PascalWordToken</h1>
+ * <h1>JavaWordToken</h1>
  *
- * <p> Pascal word tokens (identifiers and reserved words).</p>
+ * <p> Java word tokens (identifiers and reserved words).</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -18,7 +18,7 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
 using namespace std;
 using namespace wci::frontend::java;
 
-class PascalWordToken : public PascalToken
+class JavaWordToken : public JavaToken
 {
 public:
     /**
@@ -26,11 +26,11 @@ public:
      * @param source the source from where to fetch the token's characters.
      * @throw a string message if an error occurred.
      */
-    PascalWordToken(Source *source) throw (string);
+    JavaWordToken(Source *source) throw (string);
 
 protected:
     /**
-     * Extract a Pascal word token from the source.
+     * Extract a Java word token from the source.
      * Override of wci::frontend::Token.
      * @throw a string message if an error occurred.
      */

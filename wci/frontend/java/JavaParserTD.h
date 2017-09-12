@@ -1,7 +1,7 @@
 /**
- * <h1>PascalParserTD</h1>
+ * <h1>JavaParserTD</h1>
  *
- * <p>The top-down Pascal parser.</p>
+ * <p>The top-down Java parser.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -18,23 +18,23 @@ namespace wci { namespace frontend { namespace java {
 using namespace std;
 using namespace wci::frontend;
 
-class PascalParserTD : public Parser
+class JavaParserTD : public Parser
 {
 public:
     /**
      * Constructor.
      * @param scanner the scanner to be used with this parser.
      */
-    PascalParserTD(Scanner *scanner);
+    JavaParserTD(Scanner *scanner);
 
     /**
      * Constructor for subclasses.
      * @param parent the parent parser.
      */
-    PascalParserTD(PascalParserTD *parent);
+    JavaParserTD(JavaParserTD *parent);
 
     /**
-     * Parse a Pascal source program and generate the symbol table
+     * Parse a Java source program and generate the symbol table
      * and the intermediate code.
      * Implementation of wci::frontend::Parser.
      * @throw a string message if an error occurred.
@@ -49,10 +49,10 @@ public:
     int get_error_count() const;
 
 protected:
-    static PascalErrorHandler error_handler;
+    static JavaErrorHandler error_handler;
 };
 
 }}} // namespace wci::frontend::java
 
 
-#endif /* WCI_FRONTEND_JAVA_PASCALPARSERTD_H_ */
+#endif /* WCI_FRONTEND_JAVA_JavaPARSERTD_H_ */

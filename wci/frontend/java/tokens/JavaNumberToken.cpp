@@ -1,7 +1,7 @@
 /**
- * <h1>PascalNumberToken</h1>
+ * <h1>JavaNumberToken</h1>
  *
- * <p>Pascal number tokens (integer and real).</p>
+ * <p>Java number tokens (integer and real).</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -19,19 +19,19 @@ using namespace std;
 using namespace wci::frontend;
 using namespace wci::frontend::java;
 
-int PascalNumberToken::MAX_EXPONENT = 37;
+int JavaNumberToken::MAX_EXPONENT = 37;
 
-PascalNumberToken::PascalNumberToken(Source *source) throw (string)
-    : PascalToken(source)
+JavaNumberToken::JavaNumberToken(Source *source) throw (string)
+    : JavaToken(source)
 {
     extract();
 }
 
 /**
- * Extract a Pascal number token from the source.
+ * Extract a Java number token from the source.
  * @throws Exception if an error occurred.
  */
-void PascalNumberToken::extract() throw (string)
+void JavaNumberToken::extract() throw (string)
 {
     string whole_digits = "";     // digits before the decimal point
     string fraction_digits = "";  // digits after the decimal point
@@ -127,7 +127,7 @@ void PascalNumberToken::extract() throw (string)
  * @return the string of digits.
  * @throws Exception if an error occurred.
  */
-string PascalNumberToken::unsigned_integer_digits() throw (string)
+string JavaNumberToken::unsigned_integer_digits() throw (string)
 {
     char current_ch = current_char();
 
@@ -157,7 +157,7 @@ string PascalNumberToken::unsigned_integer_digits() throw (string)
  * @param digits the string of digits.
  * @return the integer value.
  */
-int PascalNumberToken::compute_integer_value(string digits)
+int JavaNumberToken::compute_integer_value(string digits)
 {
     // Return 0 if no digits.
     if (digits == "") return 0;
@@ -194,7 +194,7 @@ int PascalNumberToken::compute_integer_value(string digits)
  * @param exponent_sign the exponent sign.
  * @return the float value.
  */
-float PascalNumberToken::compute_float_value(string whole_digits,
+float JavaNumberToken::compute_float_value(string whole_digits,
                                              string fraction_digits,
                                              string exponent_digits,
                                              char exponent_sign)

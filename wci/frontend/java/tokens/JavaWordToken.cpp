@@ -1,7 +1,7 @@
 /**
- * <h1>PascalWordToken</h1>
+ * <h1>JavaWordToken</h1>
  *
- * <p> Pascal word tokens (identifiers and reserved words).</p>
+ * <p> Java word tokens (identifiers and reserved words).</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
@@ -20,17 +20,17 @@ using namespace std;
 using namespace wci::frontend;
 using namespace wci::frontend::java;
 
-PascalWordToken::PascalWordToken(Source *source) throw (string)
-    : PascalToken(source)
+JavaWordToken::JavaWordToken(Source *source) throw (string)
+    : JavaToken(source)
 {
     extract();
 }
 
 /**
- * Extract a Pascal word token from the source.
+ * Extract a Java word token from the source.
  * @throws Exception if an error occurred.
  */
-void PascalWordToken::extract() throw (string)
+void JavaWordToken::extract() throw (string)
 {
     char current_ch = current_char();
 
@@ -45,11 +45,11 @@ void PascalWordToken::extract() throw (string)
     // Is it a reserved word or an identifier?
     string upper_case(text);
 
-    if (PascalToken::RESERVED_WORDS.find(upper_case)
-            != PascalToken::RESERVED_WORDS.end())
+    if (JavaToken::RESERVED_WORDS.find(upper_case)
+            != JavaToken::RESERVED_WORDS.end())
     {
         // Reserved word.
-        type = (TokenType) PascalToken::RESERVED_WORDS[upper_case];
+        type = (TokenType) JavaToken::RESERVED_WORDS[upper_case];
         transform(upper_case.begin(), upper_case.end(),
 				  upper_case.begin(), ::toupper);
         value = new DataValue(upper_case);
