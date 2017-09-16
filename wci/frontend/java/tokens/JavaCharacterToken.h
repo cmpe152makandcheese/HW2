@@ -1,13 +1,13 @@
 /**
- * <h1>PascalStringToken</h1>
+ * <h1>JavaCharacterToken</h1>
  *
- * <p> Pascal string tokens.</p>
+ * <p> Java String tokens.</p>
  *
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
  */
-#ifndef WCI_FRONTEND_PASCAL_TOKENS_PASCALSTRINGTOKEN_H_
-#define WCI_FRONTEND_PASCAL_TOKENS_PASCALSTRINGTOKEN_H_
+#ifndef WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_
+#define WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_
 
 #include <string>
 
@@ -18,7 +18,7 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
                 using namespace std;
                 using namespace wci::frontend::java;
 
-                class PascalStringToken : public PascalToken
+                class JavaCharacterToken : public JavaToken
                 {
                 public:
                     /**
@@ -26,7 +26,7 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
                      * @param source the source from where to fetch the token's characters.
                      * @throw a string message if an error occurred.
                      */
-                    PascalStringToken(Source *source) throw (string);
+                    JavaCharacterToken(Source *source) throw (string);
 
                 protected:
                     /**
@@ -39,4 +39,4 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
 
             }}}}  // namespace wci::frontend::pascal::tokens
 
-#endif /* WCI_FRONTEND_PASCAL_TOKENS_PASCALSTRINGTOKEN_H_ */
+#endif /* WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_ */

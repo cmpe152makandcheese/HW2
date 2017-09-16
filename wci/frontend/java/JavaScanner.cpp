@@ -15,6 +15,7 @@
 #include "tokens/JavaErrorToken.h"
 #include "tokens/JavaNumberToken.h"
 #include "tokens/JavaSpecialSymbolToken.h"
+#include "tokens/JavaCharacterToken.h"
 #include "tokens/JavaStringToken.h"
 #include "tokens/JavaWordToken.h"
 
@@ -53,6 +54,10 @@ Token *JavaScanner::extract_token() throw (string)
         token = new JavaNumberToken(source);
     }
     else if (current_ch == '\'')
+    {
+        token = new JavaCharacterToken(source);
+    }
+    else if(current_ch == '\"')
     {
         token = new JavaStringToken(source);
     }
