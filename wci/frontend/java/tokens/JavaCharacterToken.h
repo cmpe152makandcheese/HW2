@@ -6,8 +6,8 @@
  * <p>Copyright (c) 2017 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
  */
-#ifndef WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_
-#define WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_
+#ifndef WCI_FRONTEND_JAVA_TOKENS_JAVACHARACTERTOKEN_H_
+#define WCI_FRONTEND_JAVA_TOKENS_JAVACHARACTERTOKEN_H_
 
 #include <string>
 
@@ -37,6 +37,6 @@ namespace wci { namespace frontend { namespace java { namespace tokens {
                     void extract() throw (string);
                 };
 
-            }}}}  // namespace wci::frontend::pascal::tokens
+            }}}}  // namespace wci::frontend::java::tokens
 
-#endif /* WCI_FRONTEND_PASCAL_TOKENS_PASCALCHARACTERTOKEN_H_ */
+#endif /* WCI_FRONTEND_JAVA_TOKENS_JAVACHARACTERTOKEN_H_ */
