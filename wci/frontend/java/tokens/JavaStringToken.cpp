@@ -36,16 +36,17 @@ void JavaStringToken::extract() throw (string)
         // Replace any whitespace character with a blank.
         if (isspace(current_ch)) current_ch = ' ';
 
-        if (current_ch == '\\' && peek_char() == '\"')
-        {
-            text += current_ch;
-            value_str  += current_ch;
-            current_ch = next_char();  // consume character
+        // Not the end of string
+		if (current_ch == '\\' && peek_char() == '\"')
+		{
+			text += current_ch;
+			value_str  += current_ch;
+			current_ch = next_char();  // consume character \
 
-            text += current_ch;
-            value_str  += current_ch;
-            current_ch = next_char();  // consume character
-        }
+			text += current_ch;
+			value_str  += current_ch;
+			current_ch = next_char();  // consume character "
+		}
 
         if ((current_ch != '\"') && (current_ch != EOF))
         {
@@ -65,8 +66,8 @@ void JavaStringToken::extract() throw (string)
                 current_ch = next_char();
             }
         }
-
     } while ((current_ch != '\"') && (current_ch != Source::END_OF_FILE));
+
 
     if (current_ch == '\"')
     {
