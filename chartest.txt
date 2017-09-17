@@ -1,5 +1,11 @@
 // String tokens
-// "Hello, world."
+"Hello, world."
+"Hello,\tworld!"
+"Hello,\n\"world!\""
+"It's Friday!"
+""  "\""
 
-// Character tokens
-'x' 'A' '\'' 'a' '\n' '\t' '\\'
+// Special symbol tokens
++ - * / := . , ; : = <> < <= >= > ( ) [ ] { } } ^ ..
+<<=  >>=
+:=<>=<==>>===
