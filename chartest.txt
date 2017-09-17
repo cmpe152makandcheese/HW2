@@ -2,6 +2,4 @@
 // "Hello, world."
 
 // Character tokens
-// 'x'
-// 'A'
-'\'' 'a' '\n' '\t' '\\'
+'x' 'A' '\'' 'a' '\n' '\t' '\\'
