@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "Pascal.h"
 #include "wci/frontend/Parser.h"
 #include "wci/frontend/Scanner.h"
@@ -41,6 +42,27 @@ const string USAGE =
  * @param args command-line arguments: "compile" or "execute" followed by
  *             optional flags followed by the source file path.
  */
+
+
+//void replace(std::string& str, const std::string& from, const std::string& to) {
+//    if(from.empty())
+//        return;
+//    size_t start_pos = 0;
+//    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+//        str.replace(start_pos, from.length(), to);
+//        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+//    }
+//}
+
+void replace_in_place(std::string& subject, const std::string& search,
+                          const std::string& replace) {
+    size_t pos = 0;
+    while ((pos = subject.find(search, pos)) != std::string::npos) {
+        subject.replace(pos, search.length(), replace);
+        pos += replace.length();
+    }
+}
+
 int main(int argc, char *args[])
 {
     try
@@ -208,9 +230,20 @@ void Pascal::message_received(Message& message)
                 || (token_type == "STRING")
             	|| (token_type == "CHAR"))
             {
-                if (token_type == "STRING" || token_type == "CHAR")
+                // Really dirty fix. Not scalable.
+                replace_in_place(token_value, "\\n", "\n");
+                replace_in_place(token_value, "\\'", "'");
+                replace_in_place(token_value, "\\\"", "\"");
+                replace_in_place(token_value, "\\t", "\t");
+                replace_in_place(token_value, "\\\\", "\\");
+                if (token_type == "STRING")
                 {
+
                     token_value = "\"" + token_value + "\"";
+                }
+                if (token_type == "CHAR")
+                {
+                    token_value = "\'" + token_value + "\'";
                 }
 
                 printf(VALUE_FORMAT.c_str(), token_value.c_str());
