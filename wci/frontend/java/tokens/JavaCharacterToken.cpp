@@ -33,12 +33,12 @@ void JavaCharacterToken::extract() throw (string)
     // Replace any whitespace character with a blank.
     if (isspace(current_ch)) current_ch = ' ';
 
-    if ((current_ch != '\'' && peek_char() == '\''))
-    {
+    if (current_ch == '\\') {
         text += current_ch;
         value_str += current_ch;
-        current_ch = next_char();
+        current_ch = next_char();  // consume character
     }
+
     if ((current_ch != '\'') && (current_ch != EOF))
     {
         text += current_ch;
@@ -46,14 +46,25 @@ void JavaCharacterToken::extract() throw (string)
         current_ch = next_char();  // consume character
     }
 
-    if (current_ch == '\'')
+    if (current_ch == '\'' && (peek_char() == '\''))
+    {
+        text += current_ch;
+        value_str  += current_ch;
+        current_ch = next_char();  // consume character
+
+        text += current_ch;
+        type = (TokenType) PT_CHAR;
+        value = new DataValue(value_str);
+
+        next_char(); // consume final quote
+    }
+    else if (current_ch == '\'')
     {
         next_char();  // consume final quote
         text += '\'';
         type = (TokenType) PT_CHAR;
         value = new DataValue(value_str);
     }
-
     else
     {
         type = (TokenType) PT_ERROR;

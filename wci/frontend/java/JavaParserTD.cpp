@@ -62,7 +62,7 @@ void JavaParserTD::parse() throw (string)
             case PT_CHAR:
             {
                 type_str = "CHAR";
-                value_str = token->get_value()->display();
+                value_str = token->get_value()->c;
                 break;
             }
 
