@@ -33,6 +33,12 @@ void JavaCharacterToken::extract() throw (string)
     // Replace any whitespace character with a blank.
     if (isspace(current_ch)) current_ch = ' ';
 
+    if ((current_ch != '\'' && peek_char() == '\''))
+    {
+        text += current_ch;
+        value_str += current_ch;
+        current_ch = next_char();
+    }
     if ((current_ch != '\'') && (current_ch != EOF))
     {
         text += current_ch;

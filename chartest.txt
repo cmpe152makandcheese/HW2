@@ -1,0 +1,7 @@
+// String tokens
+// "Hello, world."
+
+// Character tokens
+// 'x'
+// 'A'
+'\'' 'a' '\n' '\t' '\\'
