@@ -47,7 +47,7 @@ void JavaStringToken::extract() throw (string)
 			value_str  += current_ch;
 			current_ch = next_char();  // consume character "
 		}
-
+        // Grab all other characters
         if ((current_ch != '\"') && (current_ch != EOF))
         {
             text += current_ch;

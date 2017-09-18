@@ -220,15 +220,18 @@ void Pascal::message_received(Message& message)
                 || (token_type == "STRING")
             	|| (token_type == "CHAR"))
             {
-                // Really dirty fix. Not scalable.
+                // Replace escaped characters with proper
+                // characters for display
+                replace_in_place(token_value, "\\r", "\r");
                 replace_in_place(token_value, "\\n", "\n");
+                replace_in_place(token_value, "\\t", "\t");
                 replace_in_place(token_value, "\\'", "'");
                 replace_in_place(token_value, "\\\"", "\"");
-                replace_in_place(token_value, "\\t", "\t");
                 replace_in_place(token_value, "\\\\", "\\");
+
+                // Format the output string with appropriate delimiters
                 if (token_type == "STRING")
                 {
-
                     token_value = "\"" + token_value + "\"";
                 }
                 if (token_type == "CHAR")

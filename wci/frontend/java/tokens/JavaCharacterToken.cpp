@@ -33,12 +33,14 @@ void JavaCharacterToken::extract() throw (string)
     // Replace any whitespace character with a blank.
     if (isspace(current_ch)) current_ch = ' ';
 
+    // Handles single forward slash
     if (current_ch == '\\') {
         text += current_ch;
         value_str += current_ch;
         current_ch = next_char();  // consume character
     }
 
+    // Handles All other characters
     if ((current_ch != '\'') && (current_ch != EOF))
     {
         text += current_ch;
@@ -46,6 +48,7 @@ void JavaCharacterToken::extract() throw (string)
         current_ch = next_char();  // consume character
     }
 
+    // Handles single quote next to single quote
     if (current_ch == '\'' && (peek_char() == '\''))
     {
         text += current_ch;
