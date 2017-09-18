@@ -87,7 +87,6 @@ void JavaScanner::skip_white_space() throw (string)
         {
         	char peek_ch = peek_char();
 
-//        	current_ch = next_char(); // consume to check next character
         	// One line comment
         	if (peek_ch == '/')
         	{
@@ -107,17 +106,20 @@ void JavaScanner::skip_white_space() throw (string)
 				{
         			if (block_comment_finish)
 					{
+        				// Look for final /
 						if (current_ch == '/')
 						{
 							current_ch = next_char();
 							break;
 						}
+						// check end of block again
 						else if (current_ch != '*')
 						{
 							block_comment_finish = false;
 						}
 						current_ch = next_char();
 					}
+        			// Block comment might be ending
         			if (current_ch == '*' && !block_comment_finish)
         			{
         				block_comment_finish = true;
@@ -127,7 +129,7 @@ void JavaScanner::skip_white_space() throw (string)
         	}
         	else
         	{
-        		// It is not a comment, it is only a single /
+        		// It is not a comment, it is only a single '/'
         		break;
         	}
         }

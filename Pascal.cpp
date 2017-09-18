@@ -16,7 +16,7 @@
 #include "wci/frontend/Scanner.h"
 #include "wci/frontend/Source.h"
 #include "wci/frontend/FrontendFactory.h"
-//#include "wci/frontend/pascal/PascalToken.h"
+#include "wci/frontend/pascal/PascalToken.h"
 #include "wci/frontend/java/JavaToken.h"
 #include "wci/intermediate/SymTab.h"
 #include "wci/intermediate/ICode.h"
@@ -27,7 +27,7 @@
 
 using namespace std;
 using namespace wci::frontend;
-//using namespace wci::frontend::pascal;
+using namespace wci::frontend::pascal;
 using namespace wci::frontend::java;
 using namespace wci::intermediate;
 using namespace wci::backend;
