@@ -36,7 +36,7 @@ set(SOURCE_FILES Pascal.cpp Pascal.h
         wci/frontend/pascal/PascalErrorHandler.h
         wci/frontend/pascal/PascalToken.h
         wci/frontend/pascal/tokens/PascalErrorToken.h
-        wci/frontend/pascal/tokens/PascalNumberToken.h
+        wci/frontend/pascal/toekens/PascalNumberToken.h
         wci/frontend/pascal/tokens/PascalSpecialSymbolToken.h
         wci/frontend/pascal/tokens/PascalStringToken.h
         wci/frontend/pascal/tokens/PascalWordToken.h
